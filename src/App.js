@@ -1,14 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
+import { SearchBar, SearchButton } from "./components/index";
+import { retrieveWeather } from "./api/api";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Enter your current city</p>
+      <p>Enter your current city</p>
+      <div className="button-row">
         <SearchBar />
-      </header>
+        <SearchButton action={retrieveWeather} />
+      </div>
     </div>
   );
 }
