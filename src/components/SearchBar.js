@@ -1,16 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./SearchBar.css";
 
-const SearchBar = props => {
-    return (
-        <div>
-            <input 
-                type="text"
-                placeholder='Search for city'
-                className='search-bar'
-             />
-        </div>
-    )
-}
+const SearchBar = ({onInput}) => {
+  return (
+    <div>
+      <input type="text" placeholder="Search for city" className="search-bar" onInput={onInput} />
+    </div>
+  );
+};
 
-export default SearchBar
+SearchBar.propTypes = {
+    onInput : PropTypes.func.isRequired
+};
+
+export default SearchBar;
