@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { SearchBar, SearchButton } from "./components/index";
+import { SearchBar, SearchButton, WeatherIcon } from "./components/index";
 import axios from "axios";
 //import { retrieveWeather } from "./api/api";
 
@@ -9,7 +9,7 @@ function App() {
   const [input, setInput] = useState("");
 
   const retrieveWeather = () => {
-    let city = input
+    let city = input;
     if (city) {
       axios
         .get(
@@ -17,7 +17,7 @@ function App() {
         )
         .then((r) => {
           console.log(r.data);
-          setWeather(r.data.main.temp);
+          setWeather(r.data);
         })
         .catch((e) => {
           console.log(e);
@@ -36,7 +36,15 @@ function App() {
         <SearchBar onInput={retrieveCity} />
         <SearchButton action={() => retrieveWeather()} />
       </div>
-      <div>{weather === 0 ? "" : weather}</div>
+      <div>
+        {weather === 0 ? (
+          ""
+        ) : (
+          <div className="weather-row">
+            {weather.main.temp} <WeatherIcon weatherType={weather.weather[0].description} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

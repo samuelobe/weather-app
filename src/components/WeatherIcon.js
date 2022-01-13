@@ -1,26 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {
+  WiDaySunny,
+  WiDayCloudy,
+  WiDayRain,
+  WiDayLightning,
+  WiDaySnow,
+  WiDayFog,
+} from "react-icons/wi";
 
 const WeatherIcon = ({ weatherType }) => {
   switch (weatherType) {
     case "clear sky":
-      break;
+      return <WiDaySunny />;
     case "few clouds":
-      break;
+      return <WiDayCloudy />;
     case "scattered clouds":
-      break;
+      return <WiDayCloudy />;
     case "broken clouds":
-      break;
+      return <WiDayCloudy />;
     case "shower rain":
-      break;
+      return <WiDayRain />;
     case "rain":
-      break;
+      return <WiDayRain />;
     case "thunderstorm":
-      break;
+      return <WiDayLightning />;
     case "snow":
-      break;
+      return <WiDaySnow />;
     case "mist":
-      break;
+      return <WiDayFog />;
 
     default:
       break;
